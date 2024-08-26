@@ -70,3 +70,7 @@ Zaawansowane
 
 *** do stanu uzywam react easy state
 
+
+
+
+sprawdzam
