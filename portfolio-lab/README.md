@@ -74,3 +74,7 @@ Zaawansowane
 
 
 sprawdzam
+
+
+
+give things - do testu

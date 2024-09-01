@@ -14,9 +14,9 @@ createRoot(document.getElementById('root')).render(
   //   <App />
   // </StrictMode>,
   
-  // <Home />
+  <Home />
   // <SignIn />
   // <SignUp />
   // <SignOut />
-  <GiveThings />
+  // <GiveThings />
 )

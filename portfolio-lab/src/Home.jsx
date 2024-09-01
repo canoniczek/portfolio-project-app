@@ -8,109 +8,168 @@ function Home() {
 
   return (
     <>
+      {/* <nav className="header">
+          <ul className="up-menu-section">
+              <li><a href="#">Zaloguj się</a></li>
+              <li><a href="#">Załóż konto</a></li>
+          </ul>
+          <ul className="down-menu-section">
+              <li><a href="#">Start</a></li>
+              <li><a href="#">O co chodzi?</a></li>
+              <li><a href="#">O nas</a></li>
+              <li><a href="#">Fundacja i organizacje</a></li>
+              <li><a href="#">Kontakt</a></li>
+          </ul>
+      </nav> */}
+
+      <section className="home-first-section">
+
+
       <nav className="header">
-        <ul>
-            <li>Zaloguj się</li>
-            <li>Załóż konto</li>
-        </ul>
-        <ul>
-            <li>Start</li>
-            <li>O co chodzi?</li>
-            <li>O nas</li>
-            <li>Fundacja i organizacje</li>
-            <li>Kontakt</li>
-        </ul>
+          <ul className="up-menu-section">
+              <li><a href="#">Zaloguj się</a></li>
+              <li><a href="#">Załóż konto</a></li>
+          </ul>
+          <ul className="down-menu-section">
+              <li><a href="#">Start</a></li>
+              <li><a href="#">O co chodzi?</a></li>
+              <li><a href="#">O nas</a></li>
+              <li><a href="#">Fundacja i organizacje</a></li>
+              <li><a href="#">Kontakt</a></li>
+          </ul>
       </nav>
-      <section>
-        <img src="" alt="" />
-        <div>
-            <h1>Zacznij pomagać! Oddaj rzeczy w zaufane ręce</h1>
-            <button>ODDAJ RZECZY</button>
-            <button>ZORGANIZUJ ZBIÓRKĘ</button>
+        <div className="container-first-screen">
+          <img src="dodatki/Home-Hero-Image.jpg" alt="" className="first-section-image"/>
+          <div className="start-helping">
+              <h1>Zacznij pomagać!</h1>
+              <h1>Oddaj niechciane rzeczy w dobre ręce</h1>
+              <img src="dodatki/Decoration.svg" alt="" className="decoration-abstract-image"/>
+              <div>
+                <button>ODDAJ<br></br> RZECZY</button>
+                <button>ZORGANIZUJ<br></br> ZBIÓRKĘ</button>
+              </div>
+          </div>
         </div>
+        
+
+        <footer className="first-screen-footer">
+          <div className="column">
+              <p>10</p>
+              <h2>ODDANYCH WORKÓW</h2>
+              <h3>Lorem ipsum dolor sit amet, consectetur adipisc Pellentesque vel enim a elit viverra elementuma. Aliquam erat volutpat.</h3>
+          </div>
+          <div className="column">
+              <p>5</p>
+              <h2>WSPARTYCH ORGANIZACJI</h2>
+              <h3>Lorem ipsum dolor sit amet, consectetur adipisc Pellentesque vel enim a elit viverra elementuma. Aliquam erat volutpat.</h3>
+          </div>
+          <div className="column">
+              <p>7</p>
+              <h2>ZORGANIZOWANY ZBIÓREK</h2>
+              <h3>Lorem ipsum dolor sit amet, consectetur adipisc Pellentesque vel enim a elit viverra elementuma. Aliquam erat volutpat.</h3>
+          </div>
+        </footer>
+        
       </section>
-      <section>
-        <div className="column">
-            <p>10</p>
-            <h2>Lorem ipsum</h2>
-            <p>lorem ipsum dolor sit amet</p>
+
+      
+        
+     
+      <section className="second-screen-section">
+        
+            <div className="container-second-section">
+              <h2>Wystarczą 4 proste kroki</h2>
+              <img src="dodatki/Decoration.svg" alt="" className="decoration-abstract-image"/>
+            </div>
+
+        
+            <div className="columns-second-section">
+                <div className="column">
+                    <img src="dodatki/Icon.png" alt="" />
+                    <p className="title-of-thing">Wybierz rzeczy</p>
+                    <p className="description-of-thing">ubrania, zabawki, sprzęt i inne</p>
+                </div>
+                <div className="column">
+                    <img src="dodatki/Icon-2.svg" alt="" />
+                    <p className="title-of-thing">Spakuj je</p>
+                    <p className="description-of-thing">skorzystaj z worków na śmieci</p>
+                </div>
+                <div className="column-2">
+                    <img src="dodatki/Icon-3.svg" alt="" />
+                    <p className="title-of-thing">Zdecyduj komu chcesz pomóc</p>
+                    <p className="description-of-thing">wybierz zaufane miejsce</p>
+                </div>
+                <div className="column">
+                    <img src="dodatki/Icon-4.svg" alt="" />
+                    <p className="title-of-thing">Zamów kuriera</p>
+                    <p className="description-of-thing">kurier przyjedzie w dogodnym terminie</p>
+                </div>
+            </div>
+
+        <div className="container-button-second-section">
+          <button>ODDAJ <br></br>RZECZY</button>
         </div>
-        <div className="column">
-            <p>10</p>
-            <h2>Lorem ipsum</h2>
-            <p>lorem ipsum dolor sit amet</p>
-        </div>
-        <div className="column">
-            <p>10</p>
-            <h2>Lorem ipsum</h2>
-            <p>lorem ipsum dolor sit amet</p>
-        </div>
+        
       </section>
-      <section>
-        <div>
-            <h2>Wystarcz 4 proste kroki</h2>
-            {/* czy da się after dla h2? */}
-            <img></img>
-        </div>
-        <div>
-            <div>
-                <img src="" alt="" />
-                <p>Tytul przedmiotu</p>
-                <p>Opis przedmiotu</p>
+
+
+
+
+
+      <section className="section-about-us">
+
+        
+          <div className="container-about-us">
+
+            <div className="about-us">
+                <h2>O nas</h2>
+                <img src="dodatki/Decoration.svg" alt="" className="decoration-abstract-image"/>
+                <p>Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip.</p>
+                <img src="dodatki/Signature.svg" alt="" className="signature"/>
             </div>
-            <div>
-                <img src="" alt="" />
-                <p>Tytul przedmiotu</p>
-                <p>Opis przedmiotu</p>
+            
+
+            <div className="people">
+              <img src="dodatki/People.jpg" alt="" className="sign"/> 
             </div>
-            <div>
-                <img src="" alt="" />
-                <p>Tytul przedmiotu</p>
-                <p>Opis przedmiotu</p>
-            </div>
-            <div>
-                <img src="" alt="" />
-                <p>Tytul przedmiotu</p>
-                <p>Opis przedmiotu</p>
-            </div>
-        </div>
-        <button>ODDAJ RZECZY</button>
+            
+          </div>
+
+          
+        
+
+
+
+        
+
+        
       </section>
-      <section className="about_us">
-        <div>
-            <h2>O nas</h2>
-            <p>Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet</p>
-            <img src="" alt="" className="sign"/>
-        </div>
-        <img src="" alt="" />
+
+
+
+
+
+      <section className="who-help">
+        
+            
+              <h2>Komu pomagamy</h2>
+              
+            
+           
+       
       </section>
-      <section className="who_help">
-        <div>
-            <div className="section_choose">
-                <h2>Komu pomagamy?</h2>
-                <img src="" alt="" />
-                {/* after dla h2 */}
-                <button>Fundacjom</button>
-                <button>Organizacjom pozarzdowym</button>
-                <button>Lokalnym zbiórkom</button>
-                <p>Lorem ipsum dolor sit amet lorem ipsum dolor sit amet</p>
-            </div>
-            <div className="list_generate">
-                <ul>
-                    <li>Fudnacja dbam o zdrowie</li>
-                    <li>Fudnacja dbam o zdrowie</li>
-                    <li>Fudnacja dbam o zdrowie</li>
-                </ul>
-            </div>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-        </div>
-      </section>
-      <section className="contact">
-        <img src="" alt="" />
-        <div>
+
+
+
+
+
+
+
+      <section className="section-contact">
+        
+        <div className="contact">
             <h2>Skontakuj się z nami</h2>
+            <img src="dodatki/Decoration.svg" alt="" className="decoration"/>
             <form action="">
                 <input type="text" placeholder="Imię"/>
                 <input type="text" placeholder="Nazwisko"/>
@@ -118,8 +177,12 @@ function Home() {
                 <textarea placeholder="Wiadomość"></textarea>
                 <button>Wyślij</button>
             </form>
+            <img src="dodatki/Background-Contact-Form.jpg" alt="" className="contact-background-photo"/>
         </div>
       </section>
+
+
+
       <footer>
         <p>Copyright by Coders Lab</p>
         <img src="" alt="" className="Facebook"/>

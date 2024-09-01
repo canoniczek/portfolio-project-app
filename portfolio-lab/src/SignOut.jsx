@@ -9,21 +9,23 @@ function SignOut() {
     return (
       <>
         <nav className="header">
-          <ul>
-              <li>Zaloguj się</li>
-              <li>Załóż konto</li>
+          <ul className="up-menu-section">
+              <li><a href="#">Zaloguj się</a></li>
+              <li><a href="#">Załóż konto</a></li>
           </ul>
-          <ul>
-              <li>Start</li>
-              <li>O co chodzi?</li>
-              <li>O nas</li>
-              <li>Fundacja i organizacje</li>
-              <li>Kontakt</li>
+          <ul className="down-menu-section">
+              <li><a href="#">Start</a></li>
+              <li><a href="#">O co chodzi?</a></li>
+              <li><a href="#">O nas</a></li>
+              <li><a href="#">Fundacja i organizacje</a></li>
+              <li><a href="#">Kontakt</a></li>
           </ul>
         </nav>
-        <section>
+
+
+        <section className="log-out-section">
             <div>
-                <h1>Wylogowanie nastpiło pomyślnie</h1>
+                <h1>Wylogowanie nastąpiło pomyślnie!</h1>
                 <button>Strona główna</button>
             </div>
         </section>
