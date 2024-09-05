@@ -1,8 +1,9 @@
-// import 'components/colors.scss';
+// // import 'components/colors.scss';
 
 
 * {
     margin: 0;
+    
 }
 
 
@@ -386,7 +387,7 @@
     .container-about-us {
         display: flex;
         background: #F0F1F1 0% 0% no-repeat padding-box;
-        position: relative;
+        // position: relative;
 
         .about-us {
             display: flex;
@@ -432,7 +433,7 @@
 
         .people {
 
-           
+                z-index: 0;
                 width: 50vw;
                 background-size: cover;
                 background-position: center; 
@@ -661,42 +662,228 @@
 
 .who-help {
     height: 100vh;
-    border: 30px solid black;
+    display: flex;
+    align-items: center;
+    
+    
 }
 
 
 
 .section-contact {
     height: 100vh;
+    // background-image: url("dodatki/Background-Contact-Form.jpg");
+    // background: 
+
+    background: url("dodatki/Background-Contact-Form.jpg") 0% 0% no-repeat padding-box;
     
-    
+
     .contact-background-photo {
         width: 100vw;
         height: 100vh;
         opacity: 30%;
-        background: #FFFFFFC9 0% 0% no-repeat padding-box;
-        z-index: -10;
+        // background: #FFFFFFC9 0% 0% no-repeat padding-box;
+        z-index: -100;
     }
 
     .contact {
         z-index: 20;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
 
+        .contact-inside {
+            width: 50%;
+        }
 
         h2 {
             text-align: center;
             font: normal normal normal 38px/55px Open Sans;
             letter-spacing: -0.76px;
             color: #3C3C3C;
+            // width: 50%;
         }
 
         .decoration {
-            width: 1164px;
-            height: 12px;
+            // width: 40%;
+            height: 20px;
+            padding-bottom: 30px;
         }
 
 
-        form {
-            
-        }
+        
     }
 }
+
+
+
+
+
+
+
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .help-columns {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .help-column {
+    padding: 10px 20px;
+    border: 1px solid #333;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  
+  .help-section-description {
+    margin: 20px 0;
+    font-size: 14px;
+  }
+  
+  .list-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  
+  .list-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  
+    h2 {
+      font-size: 18px;
+      margin: 0;
+    }
+  
+    p {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+  
+    .needs {
+      font-size: 12px;
+      color: #777;
+      margin-left: 20px;
+      text-align: right;
+    }
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  
+    .page {
+      margin: 0 5px;
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+  
+    .page.active {
+      outline: 2px solid #333;
+    }
+  }
+
+
+
+// test
+
+
+.section-contact {
+    background-color: #f9f9f9; /* Tło sekcji */
+    padding: 40px 20px;
+  
+    .contact {
+    
+      text-align: center;
+  
+      h2 {
+        margin-bottom: 20px;
+        font-size: 24px;
+      }
+  
+  
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        
+
+        input[type="text"], input[type="email"], textarea {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 20px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+  
+        
+  
+        /* Imię i Nazwisko oraz Email obok siebie */
+        input[type="text"], input[type="email"] {
+          width: 100%;
+          display: inline-block;
+        }
+  
+        textarea {
+          width: 100%;
+          height: 150px;
+        }
+  
+        button {
+          padding: 10px 20px;
+          background-color: #333;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+  
+          &:hover {
+            background-color: #555;
+          }
+        }
+      }
+  
+      .contact-background-photo {
+        margin-top: 30px;
+        width: 100%;
+        border-radius: 4px;
+      }
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+  footer {
+    // position: absolute;
+    // bottom: -5000px;
+    p {
+        text-align: center;
+    }
+  }
+  

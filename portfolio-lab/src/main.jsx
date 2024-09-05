@@ -7,6 +7,7 @@ import SignIn from './SignIn.jsx'
 import SignUp from './SignUp.jsx'
 import SignOut from './SignOut.jsx'
 import GiveThings from './GiveThings.jsx'
+import Test from './test.jsx'
 
 
 createRoot(document.getElementById('root')).render(
@@ -14,6 +15,8 @@ createRoot(document.getElementById('root')).render(
   //   <App />
   // </StrictMode>,
   
+
+  // <Test />
   <Home />
   // <SignIn />
   // <SignUp />
