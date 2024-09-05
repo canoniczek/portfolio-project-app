@@ -1,5 +1,6 @@
 
 
+import './components/main.scss';
 
 
 
