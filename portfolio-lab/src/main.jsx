@@ -1,27 +1,17 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
-// import './index.css'
-import Home from './Home.jsx'
-import SignIn from './SignIn.jsx'
-import SignUp from './SignUp.jsx'
-import SignOut from './SignOut.jsx'
-import GiveThings from './GiveThings.jsx'
-import Test from './test.jsx'
-
+import React from 'react'
+import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import {store} from './supabase/store.js';
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>
-  
-
-  // <Test />
-  // <Home />
-  // <SignIn />
-  // <SignUp />
-  // <SignOut />
-  // <GiveThings />
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
 )
 
 

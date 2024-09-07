@@ -8,10 +8,10 @@ import { createClient } from '@supabase/supabase-js'
 
 export const supabase = createClient(supabaseUrl, supabaseKey)
 
-// export const signInUser = async ({username, password}) => await supabase.auth.signInWithPassword({
-//   email: username,
-//   password: password,
-// })
+export const signInUser = async ({username, password}) => await supabase.auth.signInWithPassword({
+  email: username,
+  password: password,
+})
 
 // export const signOutUser = async () => await supabase.auth.signOut()
 
@@ -46,16 +46,16 @@ await supabase.auth.signUp({
   })
   
 
-// export const checkIfEmailExists = async (email) => {
-//   const {data, error} = await supabase
-//   .from('users')
-//   .select('email')
-//   .eq('email, email');
+export const checkIfEmailExists = async (email) => {
+  const {data, error} = await supabase
+  .from('users')
+  .select('email')
+  .eq('email, email');
 
-//   if (error) {
-//     console.error(error);
-//     return false;
-//   }
+  if (error) {
+    console.error('blad');
+    return false;
+  }
 
-//   return Date.length > 0;
-// }  
+  return Date.length > 0;
+}  
