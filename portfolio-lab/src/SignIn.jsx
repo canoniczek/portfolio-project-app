@@ -1,10 +1,15 @@
 
 // import './components/main.scss';
 
-
+import { useNavigate, Navigate } from "react-router-dom";
 
 function SignIn() {
 
+  const navigate = useNavigate();
+
+  const handleRegister = () => {
+    navigate('/sign-up');
+  }
 
     return (
       <>
@@ -33,7 +38,7 @@ function SignIn() {
                 </form>
                 <div className="button-sign-in">
                       <button>Zaloguj się</button>
-                      <button><a href="">Załóż konto</a></button>
+                      <button onClick={handleRegister}><a href="">Załóż konto</a></button>
                 </div>
             </div>
         </section>

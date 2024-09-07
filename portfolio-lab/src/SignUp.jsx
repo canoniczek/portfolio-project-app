@@ -5,13 +5,18 @@
 
 import { useRef } from "react";
 import { signUpUser } from "./supabase/supabase.js";
+import { Navigate, useNavigate } from "react-router-dom";
+
 
 function SignUp() {
     const emailRef = useRef();
     const passwordRef = useRef();
-
+    
 
     const formRef = useRef();
+
+
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -37,6 +42,14 @@ function SignUp() {
             formRef.current.requestSubmit();
         }
     };
+
+
+
+
+    const handleSignIn = () => {
+      navigate('/sign-in');
+    }
+
 
     return (
         <>
@@ -81,7 +94,7 @@ function SignUp() {
                       
                     </form>
                     <div className="button-sign-in">
-                        <button>Zaloguj się</button>
+                        <button onClick={handleSignIn}>Zaloguj się</button>
                         <button onClick={submitForm}>Załóż konto</button>
                     </div>
                 </div>

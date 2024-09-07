@@ -2,8 +2,6 @@ import { createClient } from '@supabase/supabase-js'
 
 
 
-const supabaseUrl = 'https://lgdivzopjppmqrfbomjw.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxnZGl2em9wanBwbXFyZmJvbWp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjU3MDY4MjAsImV4cCI6MjA0MTI4MjgyMH0.yZuESSqUIurMsFyzd1-yMhfI7XTXzqFzF2yXNLGkdnk';
 
 
 
