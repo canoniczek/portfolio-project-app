@@ -11,15 +11,20 @@ import Test from './test.jsx'
 
 
 createRoot(document.getElementById('root')).render(
-  // <StrictMode>
-  //   <App />
-  // </StrictMode>,
+  <StrictMode>
+    <App />
+  </StrictMode>
   
 
   // <Test />
-  <Home />
+  // <Home />
   // <SignIn />
   // <SignUp />
   // <SignOut />
   // <GiveThings />
 )
+
+
+
+
+

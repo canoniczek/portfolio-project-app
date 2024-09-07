@@ -12,6 +12,7 @@
     "watch-css": "npm run build-css && node-sass --include-path scss scss/main.scss css/main.css --watch --recursive"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.45.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.1",
