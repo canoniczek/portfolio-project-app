@@ -50,13 +50,14 @@ function SignUp() {
       navigate('/sign-in');
     }
 
+  
 
     return (
         <>
             <nav className="header">
                 <ul className="up-menu-section">
-                    <li><a href="#">Zaloguj się</a></li>
-                    <li><a href="#">Załóż konto</a></li>
+                    <li onClick={handleSignIn}><a href="#">Zaloguj się</a></li>
+                    <li onClick={handleSubmit}><a href="#">Załóż konto</a></li>
                 </ul>
                 <ul className="down-menu-section">
                     <li><a href="#">Start</a></li>

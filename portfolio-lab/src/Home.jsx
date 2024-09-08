@@ -2,22 +2,42 @@
 
 import './components/main.scss';
 
+import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+import { Link } from 'react-scroll';
 
 
 function Home() {
+
+    const navigate = useNavigate();
+
+    const handleGiveThings = () => {
+      navigate('/give-things');
+    }
+
     return (
       <>
-        <nav className="header">
+        <nav className="header" id='header'>
             <ul className="up-menu-section">
                 <li><a href="#">Zaloguj się</a></li>
                 <li><a href="#">Załóż konto</a></li>
             </ul>
             <ul className="down-menu-section">
-                <li><a href="#">Start</a></li>
-                <li><a href="#">O co chodzi?</a></li>
-                <li><a href="#">O nas</a></li>
-                <li><a href="#">Fundacja i organizacje</a></li>
-                <li><a href="#">Kontakt</a></li>
+                <li>
+                  <Link to="header" smooth={true} duration={500}>Start</Link>
+                </li>
+                <li>
+                  <Link to="what-mean" smooth={true} duration={500}>O co chodzi</Link>
+                </li>
+                <li>
+                  <Link to="about-us" smooth={true} duration={500}>O nas</Link>
+                </li>
+                <li>
+                  <Link to="who-help" smooth={true} duration={500}>Fundacja i organizacje</Link>
+                </li>
+                <li>
+                  <Link to="contact" smooth={true} duration={500}>Kontakt</Link>
+                </li>
             </ul>
         </nav> 
   
@@ -29,7 +49,7 @@ function Home() {
                 <h1>Oddaj niechciane rzeczy w dobre ręce</h1>
                 <img src="dodatki/Decoration.svg" alt="" className="decoration-abstract-image"/>
                 <div>
-                  <button>ODDAJ<br></br> RZECZY</button>
+                  <button onClick={handleGiveThings}>ODDAJ<br></br> RZECZY</button>
                   <button>ZORGANIZUJ<br></br> ZBIÓRKĘ</button>
                 </div>
             </div>
@@ -53,7 +73,7 @@ function Home() {
           </footer>
         </section>
   
-        <section className="second-screen-section">
+        <section className="second-screen-section" id='what-mean'>
           <div className="container-second-section">
             <h2>Wystarczą 4 proste kroki</h2>
             <img src="dodatki/Decoration.svg" alt="" className="decoration-abstract-image"/>
@@ -81,11 +101,11 @@ function Home() {
             </div>
           </div>
           <div className="container-button-second-section">
-            <button>ODDAJ <br/>RZECZY</button>
+            <button onClick={handleGiveThings}>ODDAJ <br/>RZECZY</button>
           </div>
         </section>
   
-        <section className="section-about-us">
+        <section className="section-about-us" id='about-us'>
           <div className="container-about-us">
             <div className="about-us">
                 <h2>O nas</h2>
@@ -99,7 +119,7 @@ function Home() {
           </div>
         </section>
   
-        <section className="who-help">
+        <section className="who-help" id='who-help'>
           <div className="container">
             <h1>Komu pomagamy?</h1>
             <div className="help-columns">
@@ -145,24 +165,25 @@ function Home() {
           </div>
         </section>
   
-        <section className="section-contact">
+        <section className="section-contact" id='contact'>
           <div className="contact">
               <div className="contact-inside">
                 <h2>Skontakuj się z nami</h2>
                 <img src="dodatki/Decoration.svg" alt="" className="decoration"/>
               </div>
               <form action="">
-                  <input type="text" placeholder="Imię"/>
-                  <input type="text" placeholder="Nazwisko"/>
-                  <input type="email" placeholder="Email"/>
+                  <div className="input-container">
+                    <input type="text" placeholder="Imię"/>
+                    <input type="email" placeholder="Email"/>
+                  </div>
                   <textarea placeholder="Wiadomość"></textarea>
                   <button>Wyślij</button>
               </form>
           </div>
-          <footer>
-          <p>Copyright by Coders Lab</p>
-          <img src="" alt="" className="Facebook"/>
-          <img src="" alt="" className="Instagram"/>
+          <footer className='footer-copyright'>
+            <p>Copyright by Coders Lab</p>
+            <img src="" alt="" className="Facebook"/>
+            <img src="" alt="" className="Instagram"/>
         </footer> 
         </section>
   

@@ -30,12 +30,21 @@
         align-items: center;
         margin-bottom: 15px;
 
+        &:first-child:hover{
+            border: 2px solid gray;
+        }
+
+        &:last-child:hover {
+            border: 2px solid #FAD648;
+        }
+
         a {
             text-align: right;
             font: normal normal normal 15px/30px Open Sans;
             color: #737373;
             text-decoration: none;
             
+
         }
     }
     
@@ -53,6 +62,8 @@
     display: flex;
     list-style: none;
     gap: 1em;
+    cursor: pointer;
+
 
 
 
@@ -60,9 +71,10 @@
     font: normal normal normal 18px/24px Open Sans;
     
 
-    a {
-        text-decoration: none;
-        color: #3C3C3C;
+    li {
+        &:hover {
+            border-bottom: 2px solid black;
+        }
     }
 }
 
@@ -669,22 +681,28 @@
 }
 
 
+.section-contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("dodatki/Background-Contact-Form.jpg") 0% 0% no-repeat padding-box;
+    background-size: cover;
+    opacity: 0.4; 
+    z-index: -1;
+}
+
+
 
 .section-contact {
     height: 100vh;
-    // background-image: url("dodatki/Background-Contact-Form.jpg");
-    // background: 
+    position: relative;
+    z-index: 1;
 
-    background: url("dodatki/Background-Contact-Form.jpg") 0% 0% no-repeat padding-box;
+
     
-
-    .contact-background-photo {
-        width: 100vw;
-        height: 100vh;
-        opacity: 30%;
-        // background: #FFFFFFC9 0% 0% no-repeat padding-box;
-        z-index: -100;
-    }
 
     .contact {
         z-index: 20;
@@ -803,49 +821,73 @@
 
 
 
-// test
+
 
 
 .section-contact {
-    background-color: #f9f9f9; /* Tło sekcji */
+    background-color: #f9f9f9; 
     padding: 40px 20px;
+    align-content: center;
+
+
+    position: relative;
   
     .contact {
     
       text-align: center;
-  
-      h2 {
-        margin-bottom: 20px;
-        font-size: 24px;
+      
+      .contact-inside {
+
+        width: 40%;
+
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            
+          }
       }
+  
+      
   
   
       form {
-        display: flex;
+        display: flex; 
         flex-direction: column;
-        align-items: center;
-        width: 50%;
+        align-items: flex-end;
+        width: 40%;
+      
+
+        .input-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            gap: 2em;
+            
+        }
         
 
-        input[type="text"], input[type="email"], textarea {
-          width: 100%;
+        input[type="text"], input[type="email"] {
+
           padding: 10px;
           margin-bottom: 20px;
-          border: 1px solid #ccc;
-          border-radius: 4px;
+          border-bottom: 1px solid #ccc;
+          border-top: none;
+          border-right: none;
+          border-left: none;
+          width: 50%;
         }
   
         
-  
-        /* Imię i Nazwisko oraz Email obok siebie */
-        input[type="text"], input[type="email"] {
-          width: 100%;
-          display: inline-block;
-        }
   
         textarea {
           width: 100%;
           height: 150px;
+          border-bottom: 1px solid #ccc;
+          border-top: none;
+          border-right: none;
+          border-left: none;
         }
   
         button {
@@ -855,6 +897,7 @@
           border: none;
           border-radius: 4px;
           cursor: pointer;
+          margin-top: 30px;
   
           &:hover {
             background-color: #555;
@@ -879,11 +922,10 @@
 
 
 
-  footer {
-    // position: absolute;
-    // bottom: -5000px;
-    p {
-        text-align: center;
-    }
-  }
+  .footer-copyright{
+    
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+ }
   

@@ -5,6 +5,8 @@ import { useNavigate, Navigate } from "react-router-dom";
 import { signInUser } from "./supabase/supabase";
 import { useRef } from "react";
 import { useAuth } from "./supabase/authHook";
+import { useDispatch } from "react-redux";
+import { signIn } from "./supabase/authSlice";
 
 function SignIn() {
 
@@ -15,6 +17,7 @@ function SignIn() {
   const formRef = useRef();
 
   const isAuth = useAuth();
+  const dispatch = useDispatch();
 
   const handleRegister = () => {
     navigate('/sign-up');
@@ -35,9 +38,11 @@ function SignIn() {
     if (error) {
       console.error(error);
       alert('Tego maila nie ma w bazie')
-      navigate("/home");
+      navigate("/sign-up");
       return;
     }
+
+    dispatch(signIn(data))
 
   }
 
@@ -58,8 +63,8 @@ function SignIn() {
       <>
         <nav className="header">
           <ul className="up-menu-section">
-              <li><a href="#">Zaloguj się</a></li>
-              <li><a href="#">Załóż konto</a></li>
+              <li onClick={handleSubmit}><a href="#">Zaloguj się</a></li>
+              <li onClick={handleRegister}><a href="#">Załóż konto</a></li>
           </ul>
           <ul className="down-menu-section">
               <li><a href="#">Start</a></li>
