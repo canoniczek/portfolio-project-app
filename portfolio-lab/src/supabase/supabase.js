@@ -4,8 +4,6 @@ import { createClient } from '@supabase/supabase-js'
 
 
 
-
-
 export const supabase = createClient(supabaseUrl, supabaseKey)
 
 export const signInUser = async ({username, password}) => await supabase.auth.signInWithPassword({

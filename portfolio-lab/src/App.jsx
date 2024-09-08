@@ -11,6 +11,8 @@ import SignUp from "./SignUp.jsx";
 import SignOut from "./SignOut.jsx";
 import GiveThings from "./GiveThings.jsx";
 
+import Test from "./test.jsx";
+
 function App() {
   return (
 
@@ -20,7 +22,8 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
 
         <Route path="/sign-out" element={<SignOut />} />
-
+        <Route path="/test" element={<Test />} />
+        {/* admin w formie nadrzednej */}
 
         <Route path="" element={<Middleware />}>
 

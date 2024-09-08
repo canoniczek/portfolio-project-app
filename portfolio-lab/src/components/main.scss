@@ -929,3 +929,246 @@
     left: 50%;
  }
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// test
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    // overflow: visible;
+    // position: relative;
+    border: 2px solid blue;
+  
+    .slide {
+      width: 100%;
+      height: 100%;
+      background: lightgray;
+      
+      font-size: 28px;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    //   position: absolute;
+      left: 0;
+      top: 0;
+    }
+  
+    .active {
+      display: flex;
+    }
+  
+    .prev {
+    //   position: absolute;
+      bottom: 50%;
+      left: 30px;
+      cursor: pointer;
+    }
+  
+    .next {
+      position: absolute;
+      bottom: 50%;
+      right: 30px;
+      cursor: pointer;
+    }
+  }
+
+
+
+
+
+
+
+  .first-section-give-things {
+    width: 100vw;
+    // height: 100vh;
+
+    .give-things-footer {
+        margin-top: 60px;
+        background: transparent url('dodatki/3 Columns Background@2x.png') 0% 0% no-repeat padding-box;
+        width: 100vw;
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 100px;
+    }
+
+    .give-things-container {
+        height: 70vh;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+
+        .first-section-image {
+            position: absolute;
+            left: -183px;
+            z-index: -10;
+            height: 100vh;
+        }
+
+        
+
+        .give-things {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin-top: 200px;
+            align-items: center;
+            margin-right: 40px;
+
+            h1 {
+                text-align: center;
+                font: normal normal normal 38px/55px Open Sans, sans-serif;
+                letter-spacing: -0.76px;
+                color: #3C3C3C;
+                margin: 30px auto 0 auto;
+            }
+
+
+           
+
+            .steps {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+
+
+                .step {
+                    border: 1px solid #000;
+                    padding: 0 20px 0 20px;
+                    margin: 0 10px;
+                    width: 100px;
+                    height: 100px;
+                    display: flex;
+                  
+              
+                    justify-content: center;
+                    align-items: center;
+                    transform: rotate(45deg);
+                    box-sizing: border-box;
+
+                    span {
+                        font-size: 16px;
+                        font-weight: 600;
+                        transform: rotate(-45deg);
+                        
+                    }
+
+                    p {
+                        font-size: 14px;
+                        font-weight: 600;
+                        margin: 5px 0 0;
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+
+        }
+    
+   
+    
+    
+    }    
+  }
+
+
+
+
+  .second-checkbox-section {
+
+    width: 100vw;
+    height: 100vh;
+    background: transparent url('dodatki/Background-Form.jpg') 0% 0% no-repeat padding-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    
+   
+    .form-container {
+        position: relative;
+
+
+        .steps-text {
+            position: absolute;
+            top: -400px;
+            left: 80px;
+            font-size: 22px;
+        }
+
+        .form-content {
+            position: absolute;
+            top: -250px;
+            left: 80px;
+
+
+            .form-title {
+                font: normal normal 600 36px/45px Open Sans;
+            }
+
+            button {
+                margin-top: 100px;
+                border: 0.75px solid #3C3C3C;
+                padding: 20px 60px;
+            }
+
+            .checkboxes {
+                
+                display: flex;
+                flex-direction: column;
+                gap: 3em;
+                margin-top: 30px;
+                font: normal normal 300 24px/32px Open Sans;
+                justify-content: center;
+                align-items: flex-start;
+
+                label {
+
+                    display: flex;
+                    align-items: center;
+                    gap: 2em;
+
+                    input[type="checkbox"] {
+                        width: 30px;
+                        height: 30px;
+                        appearance: none;
+                        border: 1px solid #3C3C3C;
+                    
+                        &:checked {
+                            background-color: #FAD648;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+  }

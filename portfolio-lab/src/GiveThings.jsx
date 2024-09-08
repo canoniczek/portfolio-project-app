@@ -1,102 +1,128 @@
 
-// // import './components/main.scss';
 
-
-
-// function GiveThings() {
-
-
-//     return (
-//       <>
-//         <nav className="header">
-//           <ul>
-//               <li>Cześć</li>
-//               <li>Oddaj rzeczy</li>
-//               <li>Wyloguj</li>
-//           </ul>
-//           <ul>
-//               <li>Start</li>
-//               <li>O co chodzi?</li>
-//               <li>O nas</li>
-//               <li>Fundacja i organizacje</li>
-//               <li>Kontakt</li>
-//           </ul>
-//         </nav>
-//         <section>
-//             <div>
-//                 <h1>Oddaj rzeczy, których ju nie chcesz POTRZEBUJACYM</h1>
-//             </div>
-//         </section>
-//       </>
-//     )
-//   }
-  
-//   export default GiveThings;
   
   
   
 
 import React from "react";
+import { Link } from "react-scroll";
 
 function GiveThings() {
     return (
         <>
-            <menu></menu>
-            <section className="background">
-                <div>
-                    <h2>Oddaj rzeczy</h2>
-                    <p>Wystarczą cztery proste kroki, aby oddać rzeczy, których już nie potrzebujesz!</p>
-                    <div>
-                        <p>1</p>
-                        <p>Wybierz rzeczy</p>
-                    </div>
-                    <div>
-                        <p>2</p>
-                        <p>Spakuj je</p>
-                    </div>
-                    <div>
-                        <p>3</p>
-                        <p>Wybierz organizację</p>
-                    </div>
-                    <div>
-                        <p>4</p>
-                        <p>Zamów kuriera</p>
+
+            <nav className="header" id='header'>
+                <ul className="up-menu-section">
+                    <li><a href="#">Zaloguj się</a></li>
+                    <li><a href="#">Załóż konto</a></li>
+                </ul>
+                <ul className="down-menu-section">
+                    <li>
+                    <Link to="header" smooth={true} duration={500}>Start</Link>
+                    </li>
+                    <li>
+                    <Link to="what-mean" smooth={true} duration={500}>O co chodzi</Link>
+                    </li>
+                    <li>
+                    <Link to="about-us" smooth={true} duration={500}>O nas</Link>
+                    </li>
+                    <li>
+                    <Link to="who-help" smooth={true} duration={500}>Fundacja i organizacje</Link>
+                    </li>
+                    <li>
+                    <Link to="contact" smooth={true} duration={500}>Kontakt</Link>
+                    </li>
+                </ul>
+            </nav> 
+
+
+            <section className="first-section-give-things">
+                <div className="give-things-container">
+                    <img src="dodatki/Form-Hero-Image.jpg" alt="" className="first-section-image"/>
+                    <div className="give-things">
+                        <h1>Oddaj rzeczy, których już nie chcesz</h1>
+                        <br/>
+                        <h1>POTRZEBUJĄCYM</h1>
+                        <img src="dodatki/Decoration.svg" alt="" className="decoration-abstract-image"/>
+                        <h1>Wystarczą 4 proste kroki:</h1>
+
+                        <div className="steps">
+                            <div className="step">
+                                <span>1</span>
+                                <p>Wybierz rzeczy</p>
+                            </div>
+                            <div className="step">
+                                <span>2</span>
+                                <p>Spakuj je</p>
+                            </div>
+                            <div className="step">
+                                <span>3</span>
+                                <p>Wybierz organizację</p>
+                            </div>
+                            <div className="step">
+                                <span>4</span>
+                                <p>Zamów kuriera</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <footer>
+                
+                <footer className="give-things-footer">
                     <h2>Ważne!</h2>
-                    <p>Wszystkie rzeczy do oddania zapakuj w worki o pojemności 60 litrów.</p>
+                    <p>Uzupełnij szczegóły dotyczące Twoich rzeczy. Dzięki temu będziemy wiedzieć komu najlepiej je przekazać.</p>
                 </footer>
             </section>
 
-            <section className="slider-render">
-                <div>
-                    <h3>Oddaj rzeczy, które już nie są Ci potrzebne</h3>
-                    <form>
-                        <p style={{ fontWeight: "bold" }}>Zaznacz, co chcesz oddać</p>
-                        <label>
-                            <input type="checkbox" />
-                            Ubrania, które są w dobrym stanie
-                        </label>
-                        <label>
-                            <input type="checkbox" />
-                            Zabawki
-                        </label>
-                        <label>
-                            <input type="checkbox" />
-                            Książki
-                        </label>
-                        <label>
-                            <input type="checkbox" />
-                            Inne rzeczy
-                        </label>
-                        <button type="submit">Dalej</button>
-                    </form>
+
+
+
+
+
+
+
+            <section className="second-checkbox-section">
+                <div className="form-container">
+                    <p className="steps-text">Krok 1/4</p>
+                        <div className="form-content">
+                            
+                            <form>
+                                <p className="form-title">Zaznacz, co chcesz oddać</p>
+                                <div className="checkboxes">
+                                    <label>
+                                        <input type="checkbox" />
+                                        <p>Ubrania, które są w dobrym stanie</p>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" />
+                                        <p>Zabawki</p>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" />
+                                        <p>Książki</p>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" />
+                                        <p>Inne rzeczy</p>
+                                    </label>
+                                </div>
+                                <button type="submit">Dalej</button>
+                            </form>
+                        </div>
+                  
                 </div>
             </section>
 
+
+
+
+
+
+
+
+
+
             {/* Po kliknięciu */}
-            <section className="slider-render">
+            {/* <section className="slider-render">
                 <div>
                     <h3>Podaj liczbę worków</h3>
                     <form>
@@ -203,7 +229,31 @@ function GiveThings() {
                         <button type="submit">Wyślij</button>
                     </form>
                 </div>
-            </section>
+            </section> */}
+
+
+
+        <section className="section-contact" id='contact'>
+          <div className="contact">
+                <div className="contact-inside">
+                    <h2>Skontakuj się z nami</h2>
+                    <img src="dodatki/Decoration.svg" alt="" className="decoration"/>
+                </div>
+                <form action="">
+                    <div className="input-container">
+                        <input type="text" placeholder="Imię"/>
+                        <input type="email" placeholder="Email"/>
+                    </div>
+                    <textarea placeholder="Wiadomość"></textarea>
+                    <button>Wyślij</button>
+                </form>
+                </div>
+                <footer className='footer-copyright'>
+                    <p>Copyright by Coders Lab</p>
+                    <img src="" alt="" className="Facebook"/>
+                    <img src="" alt="" className="Instagram"/>
+                </footer> 
+        </section>
         </>
     );
 }

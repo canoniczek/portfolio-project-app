@@ -165,6 +165,10 @@ function Home() {
           </div>
         </section>
   
+
+
+
+  
         <section className="section-contact" id='contact'>
           <div className="contact">
               <div className="contact-inside">
