@@ -6,8 +6,118 @@
 
 import React from "react";
 import { Link } from "react-scroll";
+import { useState } from "react";
+import { sendFormulaGiveThings, supabase } from "./supabase/supabase";
+import { signOut } from "./supabase/authSlice";
+import { useDispatch } from "react-redux";
 
 function GiveThings() {
+    
+    
+
+    const [activeStep, setActiveStep] = useState(0);
+
+    const handleNextButton = () => {
+        setActiveStep(prevStep => prevStep + 1);
+    }
+
+    const handleBack = () => {
+        setActiveStep(prevStep => prevStep - 1);
+    }
+
+
+
+    const [formData, setFormData] = useState({
+        items: [],
+        bags: "1",
+        location: "warszawa",
+        helpFor: [],
+        organization: "",
+        address: {
+            street: "",
+            city: "",
+            postalCode: "",
+            phone: "",
+        },
+        pickup: {
+            date: "",
+            time: "",
+            comments: ""
+        },
+        contact: {
+            firstName: "",
+            lastName: "",
+            email: ""
+        }
+    })
+
+    const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        if (type === "checkbox") {
+            setFormData((prevData) => ({
+                ...prevData,
+                [name]: checked ? [...prevData[name], value] : prevData[name].filter(item => item !== value)
+            }));
+
+        } else {
+            setFormData(prevData => ({
+                ...prevData,
+                [name]: value
+            }));
+        }
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+
+    
+
+        const formSendData = {
+            items: formData.items || [], 
+            bags: parseInt(formData.bags, 10) || 0, 
+            location: formData.location || '',
+            help_for: formData.helpFor || [], 
+            organization: formData.organization || null,
+            address: {
+                street: formData.address?.street || '',
+                city: formData.address?.city || '',
+                postalCode: formData.address?.postalCode || '',
+                phone: formData.address?.phone || ''
+            },
+            pickup: {
+                date: formData.pickup?.date || '',
+                time: formData.pickup?.time || '',
+                comments: formData.pickup?.comments || null
+            },
+            contact: {
+                firstName: formData.contact?.firstName || '',
+                lastName: formData.contact?.lastName || '',
+                email: formData.contact?.email || ''
+            }
+        };
+        
+
+        console.log(formSendData);
+        
+        const {data, error} = await sendFormulaGiveThings(formSendData);
+
+        if (error) {
+            console.log('Error')
+        } else {
+            alert('Pomyslnie wyslano do bazy')
+        }
+    }
+
+
+
+    const dispatch = useDispatch();
+    const handleLogout = () => {
+        dispatch(signOut());
+    };
+
+    
+
     return (
         <>
 
@@ -15,6 +125,7 @@ function GiveThings() {
                 <ul className="up-menu-section">
                     <li><a href="#">Zaloguj się</a></li>
                     <li><a href="#">Załóż konto</a></li>
+                    <li onClick={handleLogout}><a href="">Wyloguj</a></li>
                 </ul>
                 <ul className="down-menu-section">
                     <li>
@@ -81,7 +192,8 @@ function GiveThings() {
 
 
             <section className="second-checkbox-section">
-                <div className="form-container">
+                {activeStep === 0 && (
+                    <div className="form-container">
                     <p className="steps-text">Krok 1/4</p>
                         <div className="form-content">
                             
@@ -89,147 +201,158 @@ function GiveThings() {
                                 <p className="form-title">Zaznacz, co chcesz oddać</p>
                                 <div className="checkboxes">
                                     <label>
-                                        <input type="checkbox" />
+                                        <input type="checkbox" name="items" value="Ubrania" onChange={handleChange}/>
                                         <p>Ubrania, które są w dobrym stanie</p>
                                     </label>
                                     <label>
-                                        <input type="checkbox" />
+                                        <input type="checkbox" name="items" value="Zabawki" onChange={handleChange}/>
                                         <p>Zabawki</p>
                                     </label>
                                     <label>
-                                        <input type="checkbox" />
+                                        <input type="checkbox" name="items" value="Książki" onChange={handleChange}/>
                                         <p>Książki</p>
                                     </label>
                                     <label>
-                                        <input type="checkbox" />
+                                        <input type="checkbox" name="items" value="Inne rzeczy" onChange={handleChange}/>
                                         <p>Inne rzeczy</p>
                                     </label>
                                 </div>
-                                <button type="submit">Dalej</button>
                             </form>
+                            <button onClick={handleNextButton}>Dalej</button>
                         </div>
                   
-                </div>
-            </section>
-
-
-
-
-
-
-
-
-
-
-            {/* Po kliknięciu */}
-            {/* <section className="slider-render">
-                <div>
-                    <h3>Podaj liczbę worków</h3>
-                    <form>
-                        <label htmlFor="bags">Liczba worków (60l)</label>
-                        <select id="bags" name="bags">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
-                        <div>
-                            <button type="button">Wstecz</button>
-                            <button type="submit">Dalej</button>
+                    </div>
+                )}
+                {activeStep === 1 && (
+                    <section className="form-container">
+                        <div className="form-content">
+                            <h3>Podaj liczbę worków</h3>
+                            <form>
+                                <label htmlFor="bags">Liczba worków (60l)</label>
+                                <select id="bags" name="bags" onChange={handleChange}>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                                <div>
+                                    <button type="button" onClick={handleBack}>Wstecz</button>
+                                    <button type="button" onClick={handleNextButton}>Dalej</button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
-                </div>
-            </section>
+                    </section>
+                )}
+                {activeStep === 2 && (
+                    <section className="form-container">
+                    <div className="form-content">
+                        <h2>Lokalizacja:</h2>
+                        <form>
+                            <label htmlFor="location">Wybierz lokalizację</label>
+                            <select id="location" name="location" onChange={handleChange}>
+                                <option value="warszawa">Warszawa</option>
+                                <option value="szczecin">Szczecin</option>
+                                <option value="zimbabwe">Zimbabwe</option>
+                            </select>
+    
+                            <h2>Komu chcesz pomóc?</h2>
+                            <label>
+                                <input type="checkbox" name="helpFor" value="Dzieciom" onChange={handleChange}/>
+                                Dzieciom
+                            </label>
+                            <label>
+                                <input type="checkbox" name="helpFor" value="Samotnym matkom" onChange={handleChange}/>
+                                Samotnym matkom
+                            </label>
+                            <label>
+                                <input type="checkbox" name="helpFor" value="Bezdomnym" onChange={handleChange}/>
+                                Bezdomnym
+                            </label>
+    
+                            <h2>Wpisz nazwę konkretnej organizacji (opcjonalne)</h2>
+                            <input type="text" placeholder="Nazwa organizacji" name="organization" onChange={handleChange}/>
+    
+                            <div>
+                                <button type="button" onClick={handleBack}>Wstecz</button>
+                                <button type="button" onClick={handleNextButton}>Dalej</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+                )}
+                {activeStep === 3 && (
+                        <section className="form-container">
+                        <div className="form-content">
+                            <h2>Podaj adres i termin odbioru:</h2>
+                            <form>
+                                <h2>Adres odbioru</h2>
+                                <label htmlFor="street">Ulica</label>
+                                <input id="street" type="text" name="address.street" onChange={handleChange}/>
 
-            <section className="slider-render">
-                <div>
-                    <h2>Lokalizacja:</h2>
-                    <form>
-                        <label htmlFor="location">Wybierz lokalizację</label>
-                        <select id="location" name="location">
-                            <option value="warszawa">Warszawa</option>
-                            <option value="szczecin">Szczecin</option>
-                            <option value="zimbabwe">Zimbabwe</option>
-                        </select>
+                                <label htmlFor="city">Miasto</label>
+                                <input id="city" type="text"  name="address.city" onChange={handleChange}/>
 
-                        <h2>Komu chcesz pomóc?</h2>
-                        <label>
-                            <input type="checkbox" />
-                            Dzieciom
-                        </label>
-                        <label>
-                            <input type="checkbox" />
-                            Samotnym matkom
-                        </label>
-                        <label>
-                            <input type="checkbox" />
-                            Bezdomnym
-                        </label>
+                                <label htmlFor="postalCode">Kod pocztowy</label>
+                                <input id="postalCode" type="text" name="address.postalCode" onChange={handleChange}/>
 
-                        <h2>Wpisz nazwę konkretnej organizacji (opcjonalne)</h2>
-                        <input type="text" placeholder="Nazwa organizacji" />
+                                <label htmlFor="phone">Numer telefonu</label>
+                                <input id="phone" type="text" name="address.phone" onChange={handleChange}/>
 
-                        <div>
-                            <button type="button">Wstecz</button>
-                            <button type="submit">Dalej</button>
+                                <h2>Termin odbioru</h2>
+                                <label htmlFor="date">Data</label>
+                                <input id="date" type="date" name="pickup.date" onChange={handleChange}/>
+
+                                <label htmlFor="time">Godzina</label>
+                                <input id="time" type="time" name="pickup.time" onChange={handleChange}/>  
+
+                                <label htmlFor="comments">Uwagi dla kuriera</label>
+                                <input id="comments" type="text" name="pickup.comments" onChange={handleChange}/>
+
+                                <div>
+                                    <button type="button" onClick={handleBack}>Wstecz</button>
+                                    <button type="button" onClick={handleNextButton}>Dalej</button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
-                </div>
-            </section>
-
-            <section className="slider-render">
-                <div>
-                    <h2>Podaj adres i termin odbioru:</h2>
-                    <form>
-                        <h2>Adres odbioru</h2>
-                        <label htmlFor="street">Ulica</label>
-                        <input id="street" type="text" />
-
-                        <label htmlFor="city">Miasto</label>
-                        <input id="city" type="text" />
-
-                        <label htmlFor="postalCode">Kod pocztowy</label>
-                        <input id="postalCode" type="text" />
-
-                        <label htmlFor="phone">Numer telefonu</label>
-                        <input id="phone" type="text" />
-
-                        <h2>Termin odbioru</h2>
-                        <label htmlFor="date">Data</label>
-                        <input id="date" type="date" />
-
-                        <label htmlFor="time">Godzina</label>
-                        <input id="time" type="time" />
-
-                        <label htmlFor="comments">Uwagi dla kuriera</label>
-                        <input id="comments" type="text" />
-
+                    </section>
+                )}
+                {activeStep === 4 && (
+                    <section className="slider-render4">
                         <div>
-                            <button type="button">Wstecz</button>
-                            <button type="submit">Dalej</button>
+                            <img src="" alt="Obraz związany z oddaniem rzeczy" />
+                            <form onSubmit={handleSubmit}>
+                                <h2>Skontaktuj się z nami</h2>
+                                <label htmlFor="firstName">Imię</label>
+                                <input id="firstName" type="text" name="contact.firstName" onChange={handleChange}/>
+        
+                                <label htmlFor="lastName">Nazwisko</label>
+                                <input id="lastName" type="text" name="contact.lastName" onChange={handleChange}/>
+        
+                                <label htmlFor="email">Email</label>
+                                <input id="email" type="email" name="contact.email" onChange={handleChange} />
+        
+                                <button type="submit">Wyślij</button>
+                            </form>
                         </div>
-                    </form>
-                </div>
+                    </section>
+                )}
+            
+
             </section>
 
-            <section className="slider-render">
-                <div>
-                    <img src="" alt="Obraz związany z oddaniem rzeczy" />
-                    <form>
-                        <h2>Skontaktuj się z nami</h2>
-                        <label htmlFor="firstName">Imię</label>
-                        <input id="firstName" type="text" />
 
-                        <label htmlFor="lastName">Nazwisko</label>
-                        <input id="lastName" type="text" />
 
-                        <label htmlFor="email">Email</label>
-                        <input id="email" type="email" />
 
-                        <button type="submit">Wyślij</button>
-                    </form>
-                </div>
-            </section> */}
+
+
+
+
+
+
+            
+
+            
+
 
 
 

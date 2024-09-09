@@ -4,6 +4,8 @@ import { createClient } from '@supabase/supabase-js'
 
 
 
+
+
 export const supabase = createClient(supabaseUrl, supabaseKey)
 
 export const signInUser = async ({username, password}) => await supabase.auth.signInWithPassword({
@@ -13,10 +15,10 @@ export const signInUser = async ({username, password}) => await supabase.auth.si
 
 // export const signOutUser = async () => await supabase.auth.signOut()
 
-// export const addFunds = async (fund) => await supabase
-//   .from('add_funds')
-//   .insert(fund)
-//   .select()
+export const sendFormulaGiveThings = async (formData) => await supabase
+  .from('donations')
+  .insert(formData)
+  
 
 // export const getFundsByUserId = async (userId) => await supabase
 //   .from('add_funds')

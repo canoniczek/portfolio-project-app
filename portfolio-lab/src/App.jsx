@@ -10,6 +10,7 @@ import SignIn from "./SignIn.jsx";
 import SignUp from "./SignUp.jsx";
 import SignOut from "./SignOut.jsx";
 import GiveThings from "./GiveThings.jsx";
+import AdminPanel from "./AdminPanel.jsx";
 
 import Test from "./test.jsx";
 
@@ -22,8 +23,8 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
 
         <Route path="/sign-out" element={<SignOut />} />
-        <Route path="/test" element={<Test />} />
-        {/* admin w formie nadrzednej */}
+        <Route path="/admin" element={<AdminPanel />} />
+        
 
         <Route path="" element={<Middleware />}>
 

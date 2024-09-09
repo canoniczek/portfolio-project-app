@@ -5,7 +5,9 @@ import './components/main.scss';
 import { useNavigate } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { Link } from 'react-scroll';
-
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import {signOut} from './supabase/authSlice';
 
 function Home() {
 
@@ -15,12 +17,30 @@ function Home() {
       navigate('/give-things');
     }
 
+    const dispatch = useDispatch();
+    const handleLogout = () => {
+        dispatch(signOut());
+    };
+
+
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const handlePageClick = (index) => {
+      setActiveIndex(index);
+    }
+
+
+    const handleHelpColumnClick = (index) => {
+      setActiveIndex(index);
+    }
+
     return (
       <>
         <nav className="header" id='header'>
             <ul className="up-menu-section">
                 <li><a href="#">Zaloguj się</a></li>
                 <li><a href="#">Załóż konto</a></li>
+                <li onClick={handleLogout}><a href="">Wyloguj</a></li>
             </ul>
             <ul className="down-menu-section">
                 <li>
@@ -118,53 +138,147 @@ function Home() {
             </div>
           </div>
         </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
         <section className="who-help" id='who-help'>
-          <div className="container">
-            <h1>Komu pomagamy?</h1>
-            <div className="help-columns">
-              <div className="help-column">Fundacjom</div>
-              <div className="help-column">Organsizacjom pozarządowym</div>
-              <div className="help-column">Lokalnym zbiórkom</div>
-            </div>
-            <div className="help-section-description">
-              W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.
-            </div>
-            <div className="list-item">
-              <div className="list-content">
-                <div>
-                  <h2>Fundacja "Dbam o Zdrowie"</h2>
-                  <p>Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</p>
-                </div>
-                <div className="needs">ubrania, jedzenie, sprzęt AGD, meble, zabawki</div>
+        <div className="container">
+        <h1>Komu pomagamy?</h1>
+        <div className="help-columns">
+          <div className="help-column" onClick={() => handleHelpColumnClick(0)}>
+            Fundacjom
+          </div>
+          <div className="help-column" onClick={() => handleHelpColumnClick(1)}>
+            Organizacjom pozarządowym
+          </div>
+          <div className="help-column" onClick={() => handleHelpColumnClick(2)}>
+            Lokalnym zbiórkom
+          </div>
+        </div>
+        <div className="help-section-description">
+          W naszej bazie znajdziesz listę zweryfikowanych Fundacji, z którymi współpracujemy. Możesz sprawdzić czym się zajmują, komu pomagają i czego potrzebują.
+        </div>
+        
+       
+        {activeIndex === 0 && (
+          <div className="list-item">
+            <div className="list-content">
+              <div>
+                <h2>Fundacja "Dbam o Zdrowie"</h2>
+                <p>Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</p>
               </div>
+              <div className="needs">ubrania, jedzenie, sprzęt AGD, meble, zabawki</div>
             </div>
-            <div className="list-item">
-              <div className="list-content">
-                <div>
-                  <h2>Organizacja "Pomocna Dłoń"</h2>
-                  <p>Cel i misja: Wsparcie dla osób starszych i niepełnosprawnych.</p>
-                </div>
-                <div className="needs">leki, sprzęt medyczny, wolontariusze</div>
+            <div className="list-content">
+              <div>
+                <h2>Fundacja "Dbam o Zdrowie"</h2>
+                <p>Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</p>
               </div>
+              <div className="needs">ubrania, jedzenie, sprzęt AGD, meble, zabawki</div>
             </div>
-            <div className="list-item">
-              <div className="list-content">
-                <div>
-                  <h2>Zbiórka "Pomoc dla Zwierząt"</h2>
-                  <p>Cel i misja: Wsparcie schronisk dla zwierząt.</p>
-                </div>
-                <div className="needs">karma, koce, zabawki dla zwierząt</div>
+            <div className="list-content">
+              <div>
+                <h2>Fundacja "Dbam o Zdrowie"</h2>
+                <p>Cel i misja: Pomoc osobom znajdującym się w trudnej sytuacji życiowej.</p>
               </div>
-            </div>
-            <div className="pagination">
-              <div className="page active">1</div>
-              <div className="page">2</div>
-              <div className="page">3</div>
+              <div className="needs">ubrania, jedzenie, sprzęt AGD, meble, zabawki</div>
             </div>
           </div>
+          
+        )}
+        {activeIndex === 1 && (
+          <div className="list-item">
+            <div className="list-content">
+              <div>
+                <h2>Organizacja "Pomocna Dłoń"</h2>
+                <p>Cel i misja: Wsparcie dla osób starszych i niepełnosprawnych.</p>
+              </div>
+              <div className="needs">leki, sprzęt medyczny, wolontariusze</div>
+            </div>
+            <div className="list-content">
+              <div>
+                <h2>Organizacja "Pomocna Dłoń"</h2>
+                <p>Cel i misja: Wsparcie dla osób starszych i niepełnosprawnych.</p>
+              </div>
+              <div className="needs">leki, sprzęt medyczny, wolontariusze</div>
+            </div>
+            <div className="list-content">
+              <div>
+                <h2>Organizacja "Pomocna Dłoń"</h2>
+                <p>Cel i misja: Wsparcie dla osób starszych i niepełnosprawnych.</p>
+              </div>
+              <div className="needs">leki, sprzęt medyczny, wolontariusze</div>
+            </div>
+
+
+          </div>
+        )}
+        {activeIndex === 2 && (
+          <div className="list-item">
+            <div className="list-content">
+              <div>
+                <h2>Zbiórka "Pomoc dla Zwierząt"</h2>
+                <p>Cel i misja: Wsparcie schronisk dla zwierząt.</p>
+              </div>
+              <div className="needs">karma, koce, zabawki dla zwierząt</div>
+            </div>
+            <div className="list-content">
+              <div>
+                <h2>Zbiórka "Pomoc dla Zwierząt"</h2>
+                <p>Cel i misja: Wsparcie schronisk dla zwierząt.</p>
+              </div>
+              <div className="needs">karma, koce, zabawki dla zwierząt</div>
+            </div>
+            <div className="list-content">
+              <div>
+                <h2>Zbiórka "Pomoc dla Zwierząt"</h2>
+                <p>Cel i misja: Wsparcie schronisk dla zwierząt.</p>
+              </div>
+              <div className="needs">karma, koce, zabawki dla zwierząt</div>
+            </div>
+          </div>
+        )}
+        
+        <div className="buttons-who-help">
+          {[0, 1, 2].map(index => (
+            <div
+              key={index}
+              className={`page ${index === activeIndex ? 'active' : ''}`}
+              onClick={() => handlePageClick(index)}
+            >
+              {index + 1}
+            </div>
+          ))}
+        </div>
+      </div>
         </section>
   
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

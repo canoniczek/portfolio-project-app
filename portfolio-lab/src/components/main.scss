@@ -69,6 +69,11 @@
 
     text-align: left;
     font: normal normal normal 18px/24px Open Sans;
+
+    a {
+        text-decoration: none;
+        color: #555;
+    }
     
 
     li {
@@ -774,6 +779,7 @@
   .list-item {
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
+    
   
     &:last-child {
       border-bottom: none;
@@ -784,6 +790,8 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #3C3C3C;
   
     h2 {
       font-size: 18px;
@@ -803,7 +811,7 @@
     }
   }
   
-  .pagination {
+  .buttons-who-help {
     display: flex;
     justify-content: center;
     margin: 20px 0;
