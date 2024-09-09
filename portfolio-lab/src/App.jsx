@@ -13,6 +13,7 @@ import GiveThings from "./GiveThings.jsx";
 import AdminPanel from "./AdminPanel.jsx";
 
 import Test from "./test.jsx";
+import UsersList from "./UsersList.jsx";
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
 
         <Route path="/sign-out" element={<SignOut />} />
         <Route path="/admin" element={<AdminPanel />} />
-        
+        <Route path="/users-list" element={<UsersList />} />
 
         <Route path="" element={<Middleware />}>
 
