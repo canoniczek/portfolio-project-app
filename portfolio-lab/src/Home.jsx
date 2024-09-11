@@ -5,11 +5,40 @@ import './components/main.scss';
 import { useNavigate } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 import { Link } from 'react-scroll';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {signOut} from './supabase/authSlice';
 
+import { sendContactForm } from './supabase/supabase';
+
 function Home() {
+
+    const emailRef = useRef();
+    const nameRef = useRef();
+    const messageRef = useRef();
+
+    const handleSendFormula = async (e) => {
+      e.preventDefault();
+      
+
+
+      const formula = {
+        imie: nameRef.current.value,
+        email: emailRef.current.value,
+        wiadomosc: messageRef.current.value
+      }
+
+      console.log(formula);
+
+      const {data, error} = await sendContactForm(formula);
+
+      if (error) {
+        console.log('Problem')
+      } else {
+        alert('Pomyslnie wyslano')
+      }
+    }
+
 
     const navigate = useNavigate();
 
@@ -289,13 +318,13 @@ function Home() {
                 <h2>Skontakuj się z nami</h2>
                 <img src="dodatki/Decoration.svg" alt="" className="decoration"/>
               </div>
-              <form action="">
+              <form action="" onSubmit={handleSendFormula}>
                   <div className="input-container">
-                    <input type="text" placeholder="Imię"/>
-                    <input type="email" placeholder="Email"/>
+                    <input type="text" placeholder="Imię" ref={nameRef}/>
+                    <input type="email" placeholder="Email" ref={emailRef}/>
                   </div>
-                  <textarea placeholder="Wiadomość"></textarea>
-                  <button>Wyślij</button>
+                  <textarea placeholder="Wiadomość" ref={messageRef}></textarea>
+                  <button type="submit">Wyślij</button>
               </form>
           </div>
           <footer className='footer-copyright'>
